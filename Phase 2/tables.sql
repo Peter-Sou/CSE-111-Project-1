@@ -412,3 +412,40 @@ FROM
     cooling
 WHERE
     cool_price < 60.00
+    
+INSERT INTO customer VALUES('Jack', 'Cascio', 'jcascio@hotmail.com', 19);
+INSERT INTO customer VALUES('Lina', 'Hernandez', 'lhernandez@gmail.com', 20);
+
+--11
+INSERT INTO estTotal(price) VALUES(10053.58);
+
+--12
+SELECT name
+FROM ram
+WHERE (speed > 2400);
+
+--13
+SELECT caseCover.name, motherboard.name
+FROM caseCover, motherboard
+WHERE (caseCover.size = 'ATX' 
+AND motherboard.size = 'ATX');
+
+--14 
+SELECT cpu.name, motherboard.name
+FROM cpu, motherboard
+WHERE (cpu.socket = 'AM4' 
+AND motherboard.socket = 'AM4');
+
+--15
+SELECT name
+FROM storage
+WHERE (type = 'M.2' 
+AND size > 1
+AND price < 300);
+
+-- 16
+SELECT name
+FROM monitor
+WHERE (refresh > 60
+AND resolution = '1920 x 1080'
+AND price < 200);
