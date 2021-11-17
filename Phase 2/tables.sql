@@ -1,11 +1,11 @@
 DROP TABLE cpu;
 DROP TABLE motherboard;
-DROP TABLE case;
+DROP TABLE caseCover;
 DROP TABLE ram;
 DROP TABLE storage;
 DROP TABLE distributor;
 DROP TABLE gpu;
-DROP TABLE power;
+DROP TABLE powerSupply;
 DROP TABLE cooling;
 DROP TABLE monitor;
 DROP TABLE est_total;
@@ -34,7 +34,7 @@ CREATE TABLE motherboard(
 popularity float(32,1) not null
 );
 
-CREATE TABLE case(
+CREATE TABLE caseCover(
  ID INTEGER not null,
  type char(32) not null,
  name char(32) primary key,
@@ -83,7 +83,7 @@ CREATE TABLE gpu(
  rgb char(32)
 );
 
-CREATE TABLE power(
+CREATE TABLE powerSupply(
  ID INTEGER not null,
  type char(32) not null,
  name char(32) primary key,
@@ -130,3 +130,21 @@ CREATE TABLE customer(
  email char(32) primary key,
  buildkey INTEGER not null
 );
+
+--chnage name caseCover and powerSupply
+DELETE FROM cpu;
+DELETE FROM motherboard;
+DELETE FROM caseCover;
+DELETE FROM ram;
+DELETE FROM storage;
+DELETE FROM distributor;
+DELETE FROM gpu;
+DELETE FROM powerSupply;
+DELETE FROM cooling;
+DELETE FROM monitor;
+DELETE FROM est_total;
+DELETE FROM friend;
+DELETE FROM customer;
+
+-- INSERT INTO cpu () 
+
