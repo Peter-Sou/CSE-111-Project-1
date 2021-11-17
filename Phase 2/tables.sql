@@ -31,7 +31,7 @@ CREATE TABLE motherboard(
  socket char(32) not null,
  wifi char(32) not null,
  size char(32) not null,
-popularity float(32,1) not null
+ popularity float(32,1) not null
 );
 
 CREATE TABLE caseCover(
@@ -111,7 +111,7 @@ CREATE TABLE monitor(
  price float(32,2) not null,
  size float(32,1) not null,
  panel char(32) not null,
- refresh INTEGER not null,
+ refresh char(32) not null,
  resolution char(32) not null
 );
 
@@ -311,3 +311,104 @@ INSERT INTO storage VALUES(18,'M.2','SAMSUNG 980 PRO',184.95,'7000 MB/s',1,4.7);
 INSERT INTO storage VALUES(19,'M.2','WD Blue 3D NAND',89.99,'560 MB/s',1,4.7);
 INSERT INTO storage VALUES(20,'M.2','SAMSUNG 970 EVO PLUS',229.99,'3500 MB/s',2,4.8);
 
+
+--1
+--pick all the gpus that are of amd type
+SELECT 
+    name
+FROM
+    gpu
+WHERE 
+    type = "AMD"; 
+--2
+--pick all the gpus that are of nvidia type
+SELECT 
+    name
+FROM
+    gpu
+WHERE 
+    type = "NVIDIA"; 
+
+--3 return the buildkey that connects mr rogers email and John Doe 
+SELECT
+    c_buildkey
+FROM
+    customer
+    JOIN friend
+    ON c_buildkey = f_buildkey
+WHERE 
+    c_lname = "Doe"
+    AND f_email = "mroger@gmail.com" ;
+
+
+--4 select the case names and motherboard names that can fit the ATX category
+--(ie. Mid and Full tower cases)
+SELECT 
+    case_name,
+    mother_name
+FROM 
+    caseCover,
+    motherboard,
+    (SELECT    
+        size
+    FROM 
+        motherboard
+    WHERE
+        mother_size = 'ATX'   
+    )mothertable   
+WHERE 
+    case_size = "MID" AND 
+    case_size = "FULL" 
+--5
+--select the case name that are under $100
+SELECT
+    case_name
+FROM
+    caseCover
+WHERE
+    case_price < 100.00
+GROUP BY
+    case_name    
+--6
+--count all the cases that are not acrylic material
+SELECT
+    COUNT(case_name)
+FROM 
+    caseCover
+WHERE
+    case_type != "Acrylic"
+--7
+--select the ddr3 ram with rgb
+SELECT 
+    ram_type
+FROM
+    ram
+WHERE
+    ram_type= "DDR3"
+    AND ram_RGB = "yes"
+
+--8
+--select ram and price that is faster than 1600
+SELECT
+    ram_name, 
+    ram_price
+FROM
+    ram
+WHERE
+    ram_speed > 1600
+--9
+--select hd that is faster than 5400rpm
+SELECT 
+    storage_name
+FROM
+    storage
+WHERE
+    speed > 5400
+--10
+--pick cooling fans that are under $60
+SELECT 
+    cool_name
+FROM
+    cooling
+WHERE
+    cool_price < 60.00
