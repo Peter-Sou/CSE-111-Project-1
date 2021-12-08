@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EZ-PC-APP</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <!--Resposive meta tag to make this webpage page looking good on mobile browser-->
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Add a favicon-->
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <!--Add a page title-->
+    <title>Betsy Avila Web Portfolio</title>
+    <!--Include styles.css file to this webpage-->
+    <link rel="stylesheet" href="styles.css">
+    <!--Include script.js file to this webpage-->
+    <script type="module" src="script.js"></script>
+    <!--Use custom font from Google font https://fonts.google.com/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+		<a href = "#header">Home</a>
+		<a href = '#Categories'>Categories</a>
+		<a  href = '#Results'>Results</a>
+			<a href = "#Share">Share</a>
+			
+			<!--<a href = 'github.com'>LinkedIn</a>-->
+		</nav>	
+		
+		<header id = 'header'>
+			
+			<div>
+				<h2>Hello!</h2>
+				<h1>Welcome to Budgee</h1>
+				<h3>Lite Edition. Impressive right? Especially because I am a bird after all</h3>
+				<h4>I can help budget your monies</h4> 
+				<ol>
+					<li>Enter the amount of expenses for each applicable category</li>
+					<br>
+					<li>Press the GO Button</li>
+				</ol>
+					
+			
+			</div>
+			<img src="assets/profile_professional.jpg">
+		</header>
+		
+		<section id = 'Categories'>
+			<h2>Categories</h2>
+			<p><strong>Enter Monthly Expenses:</strong> </p>
+			
+			<form>
+				<div>
+					<label for = "food">Food</label>
+					<input type="number" id= "Food" min="0.00" step="0.01" max="30000" value="0.00" />
+				</div>
+				<br>
+				<div>
+				
+					<label for = "Housing">Housing</label>
+					<input type="number" id="Housing" min="0.00" step="0.01" max="30000" value="0.00" />
+				</div>
+				<br>
+				<div>
+					
+					<label for = "Utilities">Utilities</label>
+					<input type="number" id= "Utilities" min="0.00" step="0.01" max="30000" value="0.00" />
+				</div>
+				<br>
+				<div>
+					<label for = "Transportation">Transportation</label>
+					<input type="number" id= "Transportation" min="0.00" step="0.01" max="30000" value="0.00" />
+				</div>
+				<br>
+				<div>
+					<label for = "Tuition">Tuition</label>
+					<input type="number" id = "Tuition" min="0.00" step="0.01" max="30000" value="0.00" />
+				</div>
+				<br>
+				<div>
+					<h2>Total Balance: </h2>
+					<h2 id = "total"></h2>
+					</div>
+				<br>
+				<button onclick = "CalcSum()">GO!</button> 
+			</form>
+			<script>
+				function CalcSum(){
+					let num1 = document.getElementsById("Food").value;
+    				let num2 = document.getElementsById("Housing").value;
+    				let num3 = document.getElementsById("Utilities").value;
+    				let num4 = document.getElementsById("Transportation").value;
+    				let num5 = document.getElementsById("Tuition").value;
+    				
+					let sum = parseFloat(num1) + parseFloat(num2) + parseFloat(num3) +parseFloat(num4) +parseFloat(num5);
+        			//let sum = Number(Food) + Number(Housing) + Number(Utilities) + Number(Transportation)+ Number(Tuition);
+        			document.getElementsById("total").innerHTML = "The total is " +sum;
+				}
+			</script>
+			<!--<script src = '/registration/js/projects.js'></script>-->
+		</section>
+		<section id = 'Results'>
+			<div>
+				<h2>Results</h2>
+				<p id = "total">You need: </p>
+			</div>
+		</section>
+		<section id = 'Share'>
+			<h2>Share</h2>
+			<form action = '/survey/checkout' method = 'post' enctype= "multipart/form-data">
+				<input type="id" placeholder='Your id' required>
+				<input type="email" placeholder='Your email' required>
+				<button>Send Message</button>
+				<input type='hidden' id='redirecturl' value='thankyou.html'>
+				<input type='hidden' id='survey' value='Share'>
+			</form>	
+		</section>
+			
+		<main></main>
+		<footer id = "foot">
+			<div>Copyright © 2021 Betsy Avila & Peter Sou</div>
+		</footer>
+	</body>
+
+</html>

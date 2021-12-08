@@ -1,0 +1,217 @@
+*{
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+
+body {
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content:space-between;
+	
+	margin:0;
+	padding:0;
+	min-height:100vh;
+
+	font-family: 'Josefin Sans', sans-serif;/*link href in the head tag*/
+	font-size: 17px;
+	font-weight:bold;
+}
+
+body > * {
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	
+}
+nav{
+	color: black;
+	background-color: white;
+	height:80px;
+	width: 100%;
+	
+	max-width:500px;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	
+	position: sticky;
+	top:0;
+}
+/*select all a elements/tags in nav*/
+nav a{
+	text-decoration: none;
+	color: black;
+	margin: 0 12px;
+	
+}
+nav > a{
+	margin: 0 10px;
+	color: black;
+}
+
+a: hover{
+	color:#80ffe8;
+}
+
+header {
+	color:black;
+	background-color: white;
+	height:500px;
+	width:100%;
+}
+header h1 {
+	font-size: 64px;
+	text-align: center;
+}
+
+header h2 {
+	font-size: 40px;
+	margin: 0;
+	color: #eccbd9;
+	/* Make all of the characters to uppercase*/
+	text-transform: uppercase;
+}
+
+header h3 {
+	font-size: 21px;
+	margin: 0;
+	color: #5E616E;
+	text-align:left;
+}
+
+header img {
+	max-width: 100%;
+	height: auto;
+	background-color: #fff;
+	border-radius: 100%;
+	margin-left: 40px;
+}
+
+#Categories{
+	color:black;
+	background-color:#E1EFF6;
+	min-height:400px;
+	width:100%;
+	padding: 20px 0;
+	flex-direction: column;
+	
+}
+
+#Categories h2{
+	color: #eccbd9;
+	text-transform:uppercase;
+}
+
+#Results{
+
+	color:black;
+	background-color:#fff07c;
+	min-height:400px;
+	width:100%;
+	padding: 20px 0;
+
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+#Results{
+	color: #eccbd9;
+	text-transform:uppercase;
+}
+
+#Results > div{
+	max-width:auto;
+	width:100%;
+	/* padding: top right bottom left */
+	padding: 16px 40px 16px 40px;
+
+	/*a in rgba is the alpha channel that specifies the opacity for a color
+	background-color: rgba(0, 0, 0, 0.4);*/
+	margin:20px 0;
+	/* Define the text color in this div box*/
+	text-align: center;
+	
+}
+
+#Share{
+	color:black;
+	background-color:#83bcff;
+	min-height:400px;
+	padding: 20px 0;
+	width:100%;
+	flex-direction: column; /*keeps the text in the  middle of the colored square*/
+}
+
+#Share h2{
+	color: #eccbd9;
+	text-transform: uppercase;
+}
+
+#Share form{
+	max-width:640px;
+	width:100%;
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+#Share form >*{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#Share input{
+	width:100%;
+	font-size: 16px;
+	padding: 8px;
+	border: none;
+	margin-bottom: 16px;
+	
+}
+
+#Share textarea{
+	width:100%;
+	font-size: 16px;
+	padding: 8px;
+	border: none;
+	margin-bottom: 16px;
+	height: 120px;
+	resize: none;
+}
+
+#Share button{
+	width: 50%;
+	background-color: #eccbd9;
+	color:white;
+	padding: 8px 16px;
+	font-size: 16px;
+	border:none;
+	cursor:pointer;
+	
+}
+
+footer {
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+footer .links{
+	display:flex;
+	align-items:center;
+	justify-content: space-evenly;
+	width:120px;
+	margin-bottom:8px;
+
+}
+
+footer .links img{
+	max-width:100%;
+	height:auto;
+}

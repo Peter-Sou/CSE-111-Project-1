@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EZ | PC </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <!--Resposive meta tag to make this webpage page looking good on mobile browser-->
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <!--Include styles.css file to this webpage-->
+    <link rel="stylesheet" href ="{%static 'css/main.css' %}">
+    <!--Include script.js file to this webpage-->
+    {% comment %} <script type="module" src="script.js"></script> {% endcomment %}
+</head>
+<body>
+    <nav>
+		<a href = "#header">Home</a>
+		<a href = '#Categories'>Categories</a>
+		<a  href = '#Results'>Results</a>
+		<a href = "#Share">Share</a>
+    </nav>	
+    <header id = 'header'>
+        <div>
+            <h1>Welcome to EZ | PC</h1>
+            <p>First time building your PC? Get started by selecting the type of work you want to do with this device: </p>
+            <h3>How to use:</h3>
+            <ol>
+                <li>Select the CPU</li>
+                <br>
+                <li>Select the Motherboard</li>
+                <li>Select the Case</li>
+                <li>Select the RAM</li>
+                <li>Select the Memory Drive</li>
+                <li>Select the Graphics Card if for Gaming or Content Creating</li>
+                <li>Select the Cooling</li>
+                <li>Select the Cooling for </li>
+                
+                </ol>
+        </div>
+        {% comment %} <img src="assets/profile_professional.jpg"> {% endcomment %}
+	</header>
+    <section id = 'Categories'>
+	    <h2>Categories</h2>
+		<p><strong>Enter Monthly Expenses:</strong> </p>
+			
+		<form>
+		    <div>
+			    <label for = "food">Food</label>
+				<input type="number" id= "Food" min="0.00" step="0.01" max="30000" value="0.00" />
+			</div>
+			<br>
+			<div>
+			    <label for = "Housing">Housing</label>
+				<input type="number" id="Housing" min="0.00" step="0.01" max="30000" value="0.00" />
+			</div>
+			<br>
+			<div>
+			    <label for = "Utilities">Utilities</label>
+				<input type="number" id= "Utilities" min="0.00" step="0.01" max="30000" value="0.00" />
+			</div>
+			<br>
+			<div>
+			    <label for = "Transportation">Transportation</label>
+				<input type="number" id= "Transportation" min="0.00" step="0.01" max="30000" value="0.00" />
+			</div>
+			<br>
+			<div>
+			    <label for = "Tuition">Tuition</label>
+				<input type="number" id = "Tuition" min="0.00" step="0.01" max="30000" value="0.00" />
+			</div>
+			<br>
+			<div>
+			    <h2>Total Balance: </h2>
+				<h2 id = "total"></h2>
+            </div>
+			<br>
+            <button onclick = "CalcSum()">GO!</button> 
+		</form>
+	
+		</section>
+		<section id = 'Results'>
+			<div>
+				<h2>Results</h2>
+				<p id = "total">You need: </p>
+			</div>
+		</section>
+		<section id = 'Share'>
+			<h2>Share</h2>
+			<form action = '/survey/checkout' method = 'post' enctype= "multipart/form-data">
+				<input type="id" placeholder='Your id' required>
+				<input type="email" placeholder='Your email' required>
+				<button>Send Message</button>
+				<input type='hidden' id='redirecturl' value='thankyou.html'>
+				<input type='hidden' id='survey' value='Share'>
+			</form>	
+		</section>
+			
+		<main></main>
+		<footer id = "foot">
+			<div>Copyright © 2021 Betsy Avila & Peter Sou</div>
+		</footer> 
+	</body>
+
+</html>
