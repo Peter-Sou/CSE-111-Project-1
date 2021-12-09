@@ -1,30 +1,30 @@
-DROP TABLE cpu;
-DROP TABLE motherboard;
-DROP TABLE caseCover;
-DROP TABLE ram;
-DROP TABLE storage;
-DROP TABLE distributor;
-DROP TABLE gpu;
-DROP TABLE powerSupply;
-DROP TABLE cooling;
-DROP TABLE monitor;
-DROP TABLE est_total;
-DROP TABLE friend;
-DROP TABLE customer;
+-- DROP TABLE cpu;
+-- DROP TABLE motherboard;
+-- DROP TABLE caseCover;
+-- DROP TABLE ram;
+-- DROP TABLE storage;
+-- DROP TABLE distributor;
+-- DROP TABLE gpu;
+-- DROP TABLE powerSupply;
+-- DROP TABLE cooling;
+-- DROP TABLE monitor;
+-- DROP TABLE est_total;
+-- DROP TABLE friend;
+-- DROP TABLE customer;
 
 CREATE TABLE cpu(
- ID INTEGER not null,
+ ID decimal not null,
  type char (32) not null,
  name char (32) primary key,
  price float(32,2) not null,
  socket char(32) not null,
  popularity float(32,1) not null,
  speed float(32,1) not null,
- cores INTEGER not null
+ cores decimal not null
 );
 
 CREATE TABLE motherboard(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
@@ -35,7 +35,7 @@ CREATE TABLE motherboard(
 );
 
 CREATE TABLE caseCover(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
@@ -45,67 +45,67 @@ CREATE TABLE caseCover(
 );
 
 CREATE TABLE ram(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
- speed INTEGER not null,
- size INTEGER not null,
+ speed decimal not null,
+ size decimal not null,
  popularity float(32,1),
  rgb char(32) not null
 );
 
 CREATE TABLE storage(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
- speed INTEGER not null,
- size INTEGER not null,
+ speed decimal not null,
+ size decimal not null,
  popularity float(32,1) not null
 );
 
 CREATE TABLE distributor(
- ID INTEGER primary key,
+ ID decimal primary key,
  type char(32) not null,
  price float(32,2) not null,
  popularity float(32,2)
 );
 
 CREATE TABLE gpu(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
- speed INTEGER not null,
- memory INTEGER not null,
+ speed decimal not null,
+ memory decimal not null,
  popularity float(32,1),
  rgb char(32)
 );
 
 CREATE TABLE powerSupply(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
- wattage INTEGER not null,
- size INTEGER not null,
+ wattage decimal not null,
+ size decimal not null,
  popularity float(32,1),
  rating char(32) not null
 );
 
 CREATE TABLE cooling(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
- size INTEGER not null,
+ size decimal not null,
  popularity float(32,1) not null,
  rgb char(32) not null
 );
 
 CREATE TABLE monitor(
- ID INTEGER not null,
+ ID decimal not null,
  type char(32) not null,
  name char(32) primary key,
  price float(32,2) not null,
@@ -121,14 +121,14 @@ CREATE TABLE estTotal(
 
 CREATE TABLE friend(
  email char(32) primary key,
- buildkey INTEGER not null
+ buildkey decimal not null
 );
 
 CREATE TABLE customer(
  fname char(32) not null,
  lname char(32) not null,
  email char(32) primary key,
- buildkey INTEGER not null
+ buildkey decimal not null
 );
 
 --chnage name caseCover and powerSupply
@@ -237,9 +237,9 @@ INSERT INTO cpu VALUES(18,'Intel','I3-7100',117,'LGA 1151',4.2,3.9,2);
 INSERT INTO cpu VALUES(19,'Intel','I3-8100',169.99,'LGA 1151',4.7,3.6,4);
 INSERT INTO cpu VALUES(20,'Intel','Pentium Gold G5400',167.61,'LGA 1151',4.3,3.7,2);
 
-INSERT INTO motherboard VALUES(1,'AMD','MSI MEG X570 ACE,283.99','AM4','Yes','ATX',4.9);
+INSERT INTO motherboard VALUES(1,'AMD','MSI MEG X570 ACE',283.99,'AM4','Yes','ATX',4.9);
 INSERT INTO motherboard VALUES(2,'AMD','MSI B450 Tomahawk Max',642.99,'AM4','No','ATX',4.8);
-INSERT INTO motherboard VALUES(3,'AMD','Asus TUF B450M-Pro,453.99','AM4','No','mATX',4.7);
+INSERT INTO motherboard VALUES(3,'AMD','Asus TUF B450M-Pro',453.99,'AM4','No','mATX',4.7);
 INSERT INTO motherboard VALUES(4,'AMD','ASRock X570 TAICHI',299.99,'AM4','Yes','ATX',4.5);
 INSERT INTO motherboard VALUES(5,'AMD','ASRock X570 PHANTOM GAMING 4',154.99,'AM4','No','ATX',4.6);
 INSERT INTO motherboard VALUES(6,'AMD','ASRock A320M-ITX',99.99,'AM4','No','mITX',4.7);
@@ -251,7 +251,7 @@ INSERT INTO motherboard VALUES(11,'Intel','ASRock X299 STEEL LEGEND',496.86,'LGA
 INSERT INTO motherboard VALUES(12,'Intel','ASUS ROG Strix X299-E Gaming II',492.99,'LGA 2066','Yes','ATX',4.9);
 INSERT INTO motherboard VALUES(13,'Intel','MSI Z97-Gaming 7',378.99,'LGA 1150','No','ATX',4.7);
 INSERT INTO motherboard VALUES(14,'Intel','MSI PRO B365M PRO-VH',118.31,'LGA 1151','No','mATX',4.5);
-INSERT INTO motherboard VALUES(15,'Intel','GIGABYTE H310N,239.86','LGA 1151','No','mITX',4.6);
+INSERT INTO motherboard VALUES(15,'Intel','GIGABYTE H310N',239.86,'LGA 1151','No','mITX',4.6);
 INSERT INTO motherboard VALUES(16,'Intel','ASUS Prime Z390-A/H10',388,'LGA 1151','No','ATX',4.7);
 INSERT INTO motherboard VALUES(17,'Intel','MSI PRO B365M PRO-VDH',124.75,'LGA 1151','No','ATX',3.8);
 INSERT INTO motherboard VALUES(18,'Intel','MSI MPG Z390M GAMING EDGE AC',334.48,'LGA 1151','No','mATX',4.5);
