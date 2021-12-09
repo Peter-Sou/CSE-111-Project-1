@@ -315,7 +315,7 @@ INSERT INTO storage VALUES(20,'M.2','SAMSUNG 970 EVO PLUS',229.99,'3500 MB/s',2,
 --1
 --pick all the gpus that are of amd type
 SELECT 
-    name
+    gpu.name
 FROM
     gpu
 WHERE 
@@ -331,21 +331,21 @@ WHERE
 
 --3 return the buildkey that connects mr rogers email and John Doe 
 SELECT
-    c_buildkey
+    buildkey
 FROM
     customer
     JOIN friend
-    ON c_buildkey = f_buildkey
+    ON customer.buildkey = ffriend.buildkey
 WHERE 
-    c_lname = "Doe"
-    AND f_email = "mroger@gmail.com" ;
+    customer.lname = "Doe"
+    AND friend.email = "mroger@gmail.com" ;
 
 
 --4 select the case names and motherboard names that can fit the ATX category
 --(ie. Mid and Full tower cases)
 SELECT 
-    case_name,
-    mother_name
+    caseCover.name,
+    motherboard.name
 FROM 
     caseCover,
     motherboard,
@@ -354,21 +354,21 @@ FROM
     FROM 
         motherboard
     WHERE
-        mother_size = 'ATX'   
+        motherboard.size = 'ATX'   
     )mothertable   
 WHERE 
-    case_size = "MID" AND 
-    case_size = "FULL" 
+    caseCover.size = "MID" AND 
+    caseCover.size = "FULL" 
 --5
 --select the case name that are under $100
 SELECT
-    case_name
+    name
 FROM
     caseCover
 WHERE
-    case_price < 100.00
+    price < 100.00
 GROUP BY
-    case_name    
+    name    
 --6
 --count all the cases that are not acrylic material
 SELECT
@@ -380,26 +380,26 @@ WHERE
 --7
 --select the ddr3 ram with rgb
 SELECT 
-    ram_type
+    type
 FROM
     ram
 WHERE
-    ram_type= "DDR3"
-    AND ram_RGB = "yes"
+    type= "DDR3"
+    AND RGB = "yes"
 
 --8
 --select ram and price that is faster than 1600
 SELECT
-    ram_name, 
-    ram_price
+    name, 
+    price
 FROM
     ram
 WHERE
-    ram_speed > 1600
+    speed > 1600
 --9
 --select hd that is faster than 5400rpm
 SELECT 
-    storage_name
+    name
 FROM
     storage
 WHERE
@@ -407,11 +407,11 @@ WHERE
 --10
 --pick cooling fans that are under $60
 SELECT 
-    cool_name
+    name
 FROM
     cooling
 WHERE
-    cool_price < 60.00
+    price < 60.00
     
 INSERT INTO customer VALUES('Jack', 'Cascio', 'jcascio@hotmail.com', 19);
 INSERT INTO customer VALUES('Lina', 'Hernandez', 'lhernandez@gmail.com', 20);
@@ -449,3 +449,18 @@ FROM monitor
 WHERE (refresh > 60
 AND resolution = '1920 x 1080'
 AND price < 200);
+
+--17
+-- Find CPU's that are compatible with motherboards
+SELECT cpu.name, cpu.socket
+FROM cpu, motherboard
+WHERE cpu.socket = motherboard.socket;
+
+--18
+-- Find RAM that are compatible with motherboards
+SELECT ram.name, ram.type
+FROM ram, motherboard
+WHERE (ram.type = 'DDR4' AND (motherboard.socket = 'AM4' OR motherboard.socket = 'LGA 2066' OR motherboard.socket = 'LGA 1151')
+OR (ram.type = 'DDR3' AND (motherboard.socket = 'LGA 1150'));
+
+--19 
